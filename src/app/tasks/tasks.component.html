@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Task</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h2 class="h2 text-center">MES TACHES</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">libelle</th>
+        <th scope="col">Effectué</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasksNotDone">
+        <th scope="row">{{task.id}}</th>
+        <td>{{task.libelle}}</td>
+        <td>{{task.isdone}}</td>
+        <td>
+            <a class="btn btn-primary m-1" (click)="setTaskToDone(task.id)"><i class="bi bi-check"></i></a>
+            <a class="btn btn-info m-1"><i class="bi bi-pencil-square"></i></a>
+            <a class="btn btn-danger m-1"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="h2 text-center">TÂCHES EFFECTUEES</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">libelle</th>
+        <th scope="col">Effectué</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasksDone">
+        <th scope="row">{{task.id}}</th>
+        <td>{{task.libelle}}</td>
+        <td>{{task.isdone}}</td>
+        <td>
+            <a class="btn btn-warning m-1" (click)="setTaskToNotDone(task.id)"><i class="bi bi-x-square"></i></a>
+            <a class="btn btn-info m-1"><i class="bi bi-pencil-square"></i></a>
+            <a class="btn btn-danger m-1"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
